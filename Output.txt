@@ -1,0 +1,6 @@
+Shopping List
+[ ] Buns  
+[ ] Ground Beef  
+[ ] Ground Beef 1.0 lb
+[ ] Ketchup 12.0 tbsp
+[ ] Buns 4.0 whole

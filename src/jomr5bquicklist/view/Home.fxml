@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jomr5bquicklist.controller.HomeController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="NEVER" maxWidth="171.0" minWidth="171.0" prefWidth="171.0" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="300.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="231.0" minHeight="0.0" prefHeight="37.0" vgrow="NEVER" />
+    <RowConstraints minHeight="400.0" prefHeight="443.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <HBox spacing="10.0" GridPane.columnIndex="1">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleCookBookButtonClicked" prefWidth="100.0" text="CookBook" />
+            <Button mnemonicParsing="false" onAction="#handleHelpButtonClicked" text="Help" />
+            <Separator visible="false" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleAboutClicked" text="About" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+      <TextField fx:id="searchField" promptText="Search....">
+         <GridPane.margin>
+            <Insets bottom="10.0" right="10.0" />
+         </GridPane.margin>
+      </TextField>
+      <VBox spacing="10.0" GridPane.rowIndex="1">
+         <children>
+            <Label text="Recipes and Ingredients" />
+            <ListView fx:id="addableList" editable="true" onDragDetected="#handleListDragDetected" onDragDropped="#handleListDragDropped" onDragOver="#handleListDragOver" VBox.vgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleAddSelectedToListClicked" prefHeight="25.0" prefWidth="161.0" text="Add Selected To List" />
+         </children>
+         <padding>
+            <Insets right="10.0" />
+         </padding>
+      </VBox>
+      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Label text="Current Shopping List" />
+            <ListView fx:id="shoppingList" editable="true" onDragDetected="#handleListDragDetected" onDragDropped="#handleListDragDropped" onDragOver="#handleListDragOver" VBox.vgrow="ALWAYS" />
+            <HBox spacing="10.0">
+               <children>
+                  <Separator focusTraversable="false" visible="false" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#handleClearListClicked" text="Clear List" />
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#handlePrintButtonClicked" text="Print Off Shopping List" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>

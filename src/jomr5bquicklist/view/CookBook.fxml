@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jomr5bquicklist.controller.CookBookController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="NEVER" maxWidth="171.0" minWidth="171.0" prefWidth="171.0" />
+      <ColumnConstraints hgrow="ALWAYS" minWidth="300.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="231.0" minHeight="0.0" prefHeight="37.0" vgrow="NEVER" />
+    <RowConstraints minHeight="400.0" prefHeight="443.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <HBox spacing="10.0" GridPane.columnIndex="1">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleShoppingListButtonClicked" prefWidth="100.0" text="Shopping List" />
+            <Button mnemonicParsing="false" onAction="#handleHelpButtonClicked" text="Help" />
+            <Separator focusTraversable="false" visible="false" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleAboutButtonClicked" text="About" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </HBox>
+      <TextField fx:id="searchTextField" promptText="Search....">
+         <GridPane.margin>
+            <Insets bottom="10.0" right="10.0" />
+         </GridPane.margin>
+      </TextField>
+      <VBox spacing="10.0" GridPane.rowIndex="1">
+         <children>
+            <Label text="Recipe and Ingredient Library" />
+            <ListView fx:id="cookBookList" onMouseClicked="#handleNameListViewClicked" VBox.vgrow="ALWAYS" />
+         </children>
+         <GridPane.margin>
+            <Insets right="10.0" />
+         </GridPane.margin>
+      </VBox>
+      <Accordion fx:id="accordion" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <panes>
+          <TitledPane fx:id="recipeEditor" onMouseClicked="#handleAccordionClicked" text="Add New or Edit Selected Recipe">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <TextField fx:id="recipeTitle" prefHeight="25.0" prefWidth="189.0" promptText="Enter Recipe Title..." HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="numberOfServings" prefHeight="25.0" prefWidth="132.0" promptText="Number of Servings..." />
+                           </children>
+                        </HBox>
+                        <HBox spacing="10.0">
+                           <children>
+                              <TextField fx:id="ingredientName" promptText="Ingredient Name..." HBox.hgrow="ALWAYS" />
+                              <TextField fx:id="amountOfIngredient" promptText="Amount of Ingredient..." />
+                              <TextField fx:id="unit" prefHeight="25.0" prefWidth="71.0" promptText="Unit..." />
+                              <Button mnemonicParsing="false" onAction="#handleAddIngredientButtonClicked" prefHeight="25.0" prefWidth="38.0" text="+" />
+                           </children>
+                        </HBox>
+                        <Text fx:id="recipeErrorText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" />
+                        <ListView fx:id="currentIngredients" onMouseClicked="#handleIngredientListViewClicked" prefHeight="181.0" prefWidth="387.0" VBox.vgrow="ALWAYS" />
+                        <HBox spacing="10.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handleDeleteIngredientFromRecipeButtonClicked" text="Remove Ingredient" />
+                              <Button mnemonicParsing="false" onAction="#handleDeleteRecipeClicked" text="Delete Recipe" />
+                              <Button mnemonicParsing="false" onAction="#handleNewButtonClicked" text="New" />
+                              <Separator visible="false" HBox.hgrow="ALWAYS" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+          </TitledPane>
+          <TitledPane onMouseClicked="#handleAccordionClicked" text="Add or Edit Selected Ingredient">
+               <content>
+                  <VBox spacing="10.0">
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <TextField fx:id="ingredientNameBottom" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="141.0" promptText="Ingredient Name..." HBox.hgrow="ALWAYS" />
+                              <Button mnemonicParsing="false" onAction="#handleRemoveIngredientFromCookBook" text="Delete Ingredient" />
+                              <Button defaultButton="true" mnemonicParsing="false" onAction="#handleAddIngredientToCookBookClicked" text="Save Ingredient" />
+                           </children>
+                           <padding>
+                              <Insets right="10.0" top="10.0" />
+                           </padding>
+                        </HBox>
+                        <Text fx:id="ingredientErrorText" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" top="10.0" />
+                     </padding>
+                  </VBox>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>
